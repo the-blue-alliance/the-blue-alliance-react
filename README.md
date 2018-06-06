@@ -3,6 +3,8 @@ The Blue Alliance - Rect Native
 
 React Native code used in The Blue Alliance's iOS app
 
+![Header](screenshots/header.png)
+
 Setup
 ===
 The React Native codebase needs a few dependencies to get setup. The commands below suggest [Homebrew](https://brew.sh/) to install the dependencies. If you're trying to get the codebase setup on Linux or Windows, follow the links to find platform-specific setup instructions.
