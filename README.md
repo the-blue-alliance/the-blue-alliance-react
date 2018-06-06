@@ -9,17 +9,15 @@ The React Native codebase needs a few dependencies to get setup. The commands be
 
 Build Tool Dependencies
 ---
-1. Install [Node/npm](https://nodejs.org/en/)
-  * `brew install node`
-2. Install [Watchman](https://facebook.github.io/watchman/docs/install.html)
-  * `brew install watchman`
+1. Install [Node/npm](https://nodejs.org/en/) and [Watchman](https://facebook.github.io/watchman/docs/install.html)
+    * `brew install node watchman`
 2. Install [React Native](https://facebook.github.io/react-native)
-  * `npm install -g react-native-cli`
+    * `npm install -g react-native-cli`
 3. Clone this repository and navigate to the cloned project
-  * `git clone https://github.com/the-blue-alliance/the-blue-alliance-react.git`
-  * `cd the-blue-alliance-react`
-3. Install project dependencies
-  * `npm install`
+    * `git clone https://github.com/the-blue-alliance/the-blue-alliance-react.git`
+    * `cd the-blue-alliance-react`
+4. Install project dependencies
+    * `npm install`
 
 Developing Locally
 ===
