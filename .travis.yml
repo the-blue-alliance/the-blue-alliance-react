@@ -5,17 +5,30 @@ branches:
   - master
 
 before_install:
-  - openssl aes-256-cbc -K $encrypted_key_name -iv $encrypted_iv_name -in gcp-service-key.json.enc -out gcp-service-key.json -d
   - nvm install 9
 
 install:
   - travis_retry npm install
   - travis_retry npm install -g react-native-cli
 
-script:
-  - react-native bundle --platform ios --dev false --assets-dest ios --entry-file index.ios.js --bundle-output ios/main.jsbundle
-  - zip -r react-native.zip ios/
+before_deploy:
+  - openssl aes-256-cbc -K $encrypted_key_name -iv $encrypted_iv_name -in deploy_keys.tar.enc -out ops/deploy_keys.tar -d
+  - ./ops/manage_deploy_keys.sh -x
 
-after_success:
-  - gcloud auth activate-service-account --key-file gcp-service-key.json
-  - gsutil cp react-native.zip $firebase_bucket/react-native/react-native.zip
+stages:
+  - test
+  - name: deploy
+    if: (type = push) AND (branch = master)
+
+jobs:
+  include:
+  - script: npm test
+  - stage: deploy
+    script: skip
+    deploy:
+      skip_cleanup: true
+      provider: script
+      script: ./ops/travis-deploy.sh
+      on:
+        branch: master
+
