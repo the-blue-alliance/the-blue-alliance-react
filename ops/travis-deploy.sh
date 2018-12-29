@@ -12,6 +12,10 @@ INSTALL=$HOME
 BOOTSTRAP="$INSTALL/$NAME/bin/bootstrapping/install.py"
 GCLOUD="$INSTALL/$NAME/bin/gcloud"
 
+with_python27() {
+    bash -c "source $HOME/virtualenv/python2.7/bin/activate; $1"
+}
+
 echo "Downloading Google Cloud SDK ..."
 curl -L "${BASE}${NAME}${EXT}" | gzip -d | tar -x -C ${INSTALL}
 
