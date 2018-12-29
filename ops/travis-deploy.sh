@@ -27,7 +27,7 @@ PATH=$PATH:$INSTALL/$NAME/bin/
 echo "Configuring service account auth..."
 gcloud -q auth activate-service-account --key-file ops/tbatv-prod-hrd-firebase-adminsdk.json
 
-$firebase_bucket="gs://$google_cloud_project.appspot.com"
+firebase_bucket="gs://$google_cloud_project.appspot.com"
 gsutil cp react-native.zip $firebase_bucket/react-native/react-native.zip
 
 
