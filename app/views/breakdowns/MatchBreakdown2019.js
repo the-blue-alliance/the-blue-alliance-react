@@ -1,29 +1,12 @@
 import React from 'react';
-import ReactNative from 'react-native';
 import {
-  Text,
   View
 } from 'react-native';
-import BreakdownRow from '../componets/BreakdownRow';
-import breakdown from '../styles/breakdown';
-import images from '../config/images';
+import BreakdownRow from '../../components/BreakdownRow';
+import MatchBreakdown from '../breakdowns/MatchBreakdown';
+import breakdownStyle from '../../styles/breakdown';
 
-// Override our Image and Text to have specific sizes
-const Image = ({ style, ...props }) => <ReactNative.Image style={[breakdown.imageSize, style]} {...props} />;
-
-export default class MatchBreakdown2019 extends React.Component {
-
-  checkImage() {
-    return (
-      <Image source={images.check} />
-    );
-  }
-
-  xImage() {
-    return (
-      <Image source={images.clear} />
-    );
-  }
+export default class MatchBreakdown2019 extends MatchBreakdown {
 
   getSandstormBonusFor(breakdown, robotNumber) {
     if (breakdown["habLineRobot" + robotNumber] == "CrossedHabLineInSandstorm") {
@@ -80,10 +63,9 @@ export default class MatchBreakdown2019 extends React.Component {
     return `${panelCount} / ${cargoCount}`
   }
 
-
   render() {
     return (
-      <View style={breakdown.container}>
+      <View style={breakdownStyle.container}>
 
         <BreakdownRow data={["Teams", this.props.redTeams, this.props.blueTeams]} vertical={true} subtotal={true} />
 
