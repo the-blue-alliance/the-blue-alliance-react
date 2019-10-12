@@ -1,10 +1,8 @@
 'use strict';
 
-import {
-  StyleSheet,
-} from 'react-native';
+import { DynamicStyleSheet, DynamicValue } from 'react-native-dark-mode'
 
-const breakdown = StyleSheet.create({
+const breakdown = DynamicStyleSheet({
   container: {
     backgroundColor: '#ddd',
     paddingBottom: 8,
@@ -18,19 +16,20 @@ const breakdown = StyleSheet.create({
     paddingTop: 2,
   },
   grey: {
+    // TODO: system background - needs semantic colors
     backgroundColor: '#ccc',
   },
   lightRed: {
-    backgroundColor: '#ff000011',
+    backgroundColor: DynamicValue('#ffeeeeff', '#550000ff'),
   },
   red: {
-    backgroundColor: '#ff000022',
+    backgroundColor: DynamicValue('#ffddddff', '#660000ff'),
   },
   lightBlue: {
-    backgroundColor: '#0000ff11',
+    backgroundColor: DynamicValue('#eeeeffff', '#000055ff'),
   },
   blue: {
-    backgroundColor: '#0000ff22',
+    backgroundColor: DynamicValue('#ddddffff', '#000066ff'),
   },
   row: {
     flexDirection: 'row',

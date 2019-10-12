@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactNative from 'react-native';
+import { useDynamicStyleSheet } from 'react-native-dark-mode'
 import breakdownStyle from '../../styles/breakdown';
 import images from '../../config/images';
 
 // Override our Image and Text to have specific sizes
-const Image = ({ style, ...props }) => <ReactNative.Image style={[breakdownStyle.imageSize, style]} {...props} />;
+const Image = ({ style, ...props }) => <ReactNative.Image style={[breakdownStyle.imageSize, useDynamicStyleSheet(style)]} {...props} />;
 
 export default class MatchBreakdown extends React.Component {
   checkImage() {
